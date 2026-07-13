@@ -126,10 +126,9 @@ const DEFAULT_FILTERS: FilterState = {
 
 const ALL_STATUSES = Object.keys(STATUS_COLORS)
 
-function StatusFilterPopover({ applied, onApply, onClose }: {
+function StatusFilterPopover({ applied, onApply }: {
   applied: string[]
   onApply: (s: string[]) => void
-  onClose: () => void
 }) {
   const [pending, setPending] = useState<string[]>(applied)
   const allSelected = pending.length === ALL_STATUSES.length
@@ -284,7 +283,6 @@ export default function BookingCalendar() {
                 <StatusFilterPopover
                   applied={statusFilter}
                   onApply={s => { setStatusFilter(s); setFilterOpen(false) }}
-                  onClose={() => setFilterOpen(false)}
                 />
               )}
             </div>
